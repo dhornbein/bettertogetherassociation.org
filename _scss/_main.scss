@@ -1,0 +1,26 @@
+@charset "utf-8";
+// Import a Google Font
+@import url("https://use.typekit.net/ltl3dki.css");
+
+// Set your brand colors
+$yellow: #FFC600;
+$parchment: #F2EFE4;
+$black: #161616;
+$maroon: #8A1538;
+$blue: #7BA6DE;
+$orange: #FE5000;
+
+// Update Bulma's global variables
+$family-sans-serif: acumin-pro, sans-serif;
+$family-condensed: acumin-pro-condensed, sans-serif;
+$family-monospace: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+$body-family: $family-sans-serif;
+
+$title-family: $family-condensed;
+$subtitle-family: $family-condensed;
+
+// Update some of Bulma's component variables
+$body-background-color: $parchment;
+
+@import "../node_modules/bulma/bulma.sass";
+@import "accessability";

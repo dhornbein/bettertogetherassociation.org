@@ -1,52 +1,65 @@
-<!-- Main Navigation -->
-{% if page.navbar.dark %}
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-{% else %}
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-{% endif %}
-  <div class="container">
-    <!-- Brand -->
-    <a class="navbar-brand mr-4" href="./index.html">
-      <strong>{{ site.data.navigation.title }}</strong>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
     </a>
-    <!-- Collapse -->
-    <button class="navbar-toggler" type="button"
-            data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Left -->
-      <ul class="navbar-nav mr-auto">
-        {% for node in site.data.navigation.left %}
-          {% if page.url == node.link %}
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ node.link }}">{{ node.name }}
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      {% for node in site.data.navigation.left %}
+
+        {% if node.children %}
+          <div class="navbar-item has-dropdown is-hoverable">
+            {% if page.url == node.link %}
+              <a class="navbar-link is-active" href="{{ node.link }}">{{ node.name }}
                 <span class="sr-only">(current)</span>
               </a>
-            </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ node.link }}">{{ node.name }}
+            {% else %}
+            <a class="navbar-link" href="{{ node.link }}">{{ node.name }}</a>
+            {% endif %}
+
+            <div class="navbar-dropdown">
+              {% for child in node.children %}
+                {% if page.url == child.link %}
+                  <a class="navbar-item is-active" href="{{ child.link }}">{{ child.name }}
+                    <span class="sr-only">(current)</span>
+                  </a>
+                {% else %}
+                <a class="navbar-item" href="{{ child.link }}">{{ child.name }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          {% if page.url == node.link %}
+            <a class="navbar-item is-active" href="{{ node.link }}">{{ node.name }}
+              <span class="sr-only">(current)</span>
             </a>
-          </li>
+          {% else %}
+          <a class="navbar-item" href="{{ node.link }}">{{ node.name }}</a>
           {% endif %}
-        {% endfor %}
-      </ul>
-      <!-- Right -->
-      <ul class="navbar-nav nav-flex-icons">
-        {% for node in site.data.navigation.right %}
-        <li class="nav-item">
-          <a class="nav-link"
-          href="{{ node.link }}"
-          target="_blank">
-            <i class="{{ node.icon }}"></i>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
           </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div><!-- #navbarSupportedContent -->
-  </div><!-- .container -->
-</nav><!-- Navbar -->
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -6,6 +6,9 @@ left:
     name: Vision
   - link: /directory/
     name: Directory
+    children:
+      - link: /directory/join
+        name: Join
   - link: /resources/
     name: Resources
   - link: /subscribe/

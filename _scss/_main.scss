@@ -10,6 +10,10 @@ $maroon: #8A1538;
 $blue: #7BA6DE;
 $orange: #FE5000;
 
+$primary: $yellow;
+$danger: $maroon;
+$info: $blue;
+
 // Update Bulma's global variables
 $family-sans-serif: acumin-pro, sans-serif;
 $family-condensed: acumin-pro-condensed, sans-serif;
@@ -24,3 +28,102 @@ $body-background-color: $parchment;
 
 @import "../node_modules/bulma/bulma.sass";
 @import "accessability";
+
+.has-bg-yellow    { background-color: $yellow !important; }
+.has-bg-parchment { background-color: $parchment !important; }
+.has-bg-black     { background-color: $black !important; }
+.has-bg-maroon    { background-color: $maroon !important; }
+.has-bg-blue      { background-color: $blue !important; }
+.has-bg-orange    { background-color: $orange !important; }
+
+.has-text-yellow    { color: $yellow !important; }
+.has-text-parchment { color: $parchment !important; }
+.has-text-black     { color: $black !important; }
+.has-text-maroon    { color: $maroon !important; }
+.has-text-blue      { color: $blue !important; }
+.has-text-orange    { color: $orange !important; }
+
+.lead {
+  font-size: 1.5em;
+  font-family: $family-monospace;
+  font-weight: bold;
+}
+
+.big-nav {
+  display: flex;
+  font-family: $family-condensed;
+  font-weight: bold;
+  text-transform: uppercase;
+  > div {
+    display: flex;
+  }
+  .branding {
+    background-color: $primary;
+    padding: 2em;
+    flex-basis: 340px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .big-nav-items {
+    flex-grow: 1;
+    flex-direction: column;
+    .nav-row {
+      display: flex;
+      flex-grow: 1;
+    }
+    .nav-item {
+      color: $black;
+      flex-grow: 1;
+      font-size: 4em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 100ms;
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 3px 10px #0005;
+      }
+    }
+    .is-stacked {
+      flex-direction: column;
+      flex-grow: 0;
+      display: flex;
+      justify-content: stretch;
+      .nav-item {
+        width: 100px;
+      }
+    }
+  }
+}
+
+.initiative {
+  border: 5px solid $parchment;
+  // box-shadow: 1px 10px 16px 0 #0005;
+  .init-title {
+    padding: 2em;
+    flex-basis: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .init-content {
+    overflow-y: scroll;
+    max-height: 425px;
+    box-shadow: inset 2px 2px 10px #0006;
+  }
+
+  .init-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+  }
+}
+
+.home-directory {
+  .home-directory-item {
+    img { display: block; }
+  }
+}

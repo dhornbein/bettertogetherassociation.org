@@ -1,0 +1,45 @@
+.book {
+  background-color: $white;
+  padding: 1em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .book-cover {
+    display: block;
+    text-align: center;
+  }
+  .book-desc {
+    margin: 1em 0;
+    flex-grow: 1;
+  }
+}
+
+.websites {
+  column-width: 400px;
+  .site {
+    margin-bottom: .5em;
+    padding-right: 1em;
+    break-inside: avoid;
+  }
+}
+
+.promos {
+  .promo {
+    height: 100%;
+  }
+  .promocode {
+    input {
+      font-family: $family-monospace;
+      text-align: center;
+    }
+  }
+}
+
+.tools {
+  margin: 1em 1em 1em 2em;
+  max-width: 80ch;
+  .tool {
+    margin-bottom: .5em;
+  }
+}

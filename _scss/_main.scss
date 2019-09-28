@@ -17,6 +17,7 @@ $warning: $orange;
 
 $text: $black;
 $title-color: $black;
+$link: $maroon;
 
 // Update Bulma's global variables
 $family-sans-serif: acumin-pro, sans-serif;
@@ -33,6 +34,8 @@ $body-background-color: $parchment;
 @import "../node_modules/bulma/bulma.sass";
 @import "nav";
 @import "accessability";
+@import "directory";
+@import "resources";
 
 .has-bg-yellow    { background-color: $yellow !important; }
 .has-bg-parchment { background-color: $parchment !important; }

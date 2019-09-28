@@ -1,15 +1,17 @@
 ---
 title: Directory
-layout: directory
+vue: true
+js:
+  - directory.vue.js
 permalink: /directory/
 ---
     <section class="hero is-info is-bold">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">
+          <h1 class="title is-1">
             Freelancers Directory
           </h1>
-          <a class="button is-warning is-pulled-right" href="/directory/join.html">
+          <a class="button is-primary is-pulled-right" href="/directory/join.html">
             <span class="icon is-small">
               <i class="fas fa-plus"></i>
             </span>
@@ -28,14 +30,6 @@ permalink: /directory/
 
     <section class="section">
       <div id="main" class="container is-fluid" v-if="loaded">
-
-        <a class="button is-link is-pulled-right" href="{{ site.links.openCollective }}" target="_blank">
-          <span class="icon is-small">
-            <i class="fas fa-dollar-sign"></i>
-          </span>
-          &nbsp;
-          Support
-        </a>
 
         <p class="title">
           What are you looking for?
@@ -58,7 +52,9 @@ permalink: /directory/
 
         <br>
 
-        <p class="title is-4">Don't know where to start? <strong>We can help <a href="https://calendly.com/dddrew/talk" target="_blank"><span class="icon is-small"><i class="fas fa-calendar-plus"></i></span> Click here to schedule a free consultation.</a></strong></p>
+        <div class="notification is-dark">
+          <p class="title is-4">Don't know where to start? <strong>Drew can help</strong> <a href="https://calendly.com/dddrew/talk" target="_blank"><span class="icon"><i class="fas fa-calendar-plus"></i></span> Schedule a free consultation.</a></p>
+        </div>
 
         <div class="field is-grouped is-grouped-multiline is-large" v-if="showTags">
           <div class="control" v-for="skill in filteredSkills.others">

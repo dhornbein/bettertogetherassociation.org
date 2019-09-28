@@ -2,8 +2,6 @@ title: "Denver Area<br>Freelancers"
 left:
   - link: /
     name: Home
-  - link: /vision/
-    name: Vision
   - link: /directory/
     name: Directory
     children:

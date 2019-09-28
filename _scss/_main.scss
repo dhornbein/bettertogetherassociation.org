@@ -31,6 +31,7 @@ $subtitle-family: $family-condensed;
 $body-background-color: $parchment;
 
 @import "../node_modules/bulma/bulma.sass";
+@import "nav";
 @import "accessability";
 
 .has-bg-yellow    { background-color: $yellow !important; }
@@ -61,7 +62,7 @@ $body-background-color: $parchment;
 
   position: relative;
   z-index: 40;
-  
+
   > div {
     display: flex;
   }

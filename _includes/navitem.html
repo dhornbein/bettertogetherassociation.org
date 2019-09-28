@@ -1,0 +1,9 @@
+<a class="{{ include.class | default: "navbar-item" }}{% if page.url == include.link %} is-active{% endif %}" href="{{ include.link }}">
+  {% if include.icon %}
+    <span class="icon">
+      <i class="{{ include.icon }}"></i>
+    </span>
+  {% endif %}
+  {% if include.name %}{{ include.name }}{% endif %}
+  {% if page.url == include.link %}<span class="sr-only">(current)</span>{% endif %}
+</a>

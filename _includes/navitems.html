@@ -1,0 +1,16 @@
+{% for node in include.list %}
+
+  {% if node.children %}
+    <div class="navbar-item has-dropdown is-hoverable">
+      {% include navitem.html link=node.link name=node.name icon=node.icon class="navbar-link" %}
+
+      <div class="navbar-dropdown">
+        {% for child in node.children %}
+          {% include navitem.html link=child.link name=child.name icon=child.icon %}
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    {% include navitem.html link=node.link name=node.name icon=node.icon %}
+  {% endif %}
+{% endfor %}

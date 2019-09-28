@@ -14,9 +14,9 @@ left:
   - link: /subscribe/
     name: Subscribe
 right:
-  - link: https://opencollective.com/better-together-denver
-    icon: fas fa-2x fa-donate
+  # - link: https://opencollective.com/better-together-denver
+  #   icon: fas fa-2x fa-donate
   - link: https://www.meetup.com/Freelancer-are-better-together/
     icon: fab fa-2x fa-meetup
-#   - link: https://www.facebook.com/events/1064508467084854/
-#     icon: fab fa-2x fa-facebook-f
+  - link: https://www.facebook.com/Better-Together-Association-1273449229483514/
+    icon: fab fa-2x fa-facebook-f

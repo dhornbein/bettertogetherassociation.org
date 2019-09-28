@@ -13,6 +13,10 @@ $orange: #FE5000;
 $primary: $yellow;
 $danger: $maroon;
 $info: $blue;
+$warning: $orange;
+
+$text: $black;
+$title-color: $black;
 
 // Update Bulma's global variables
 $family-sans-serif: acumin-pro, sans-serif;
@@ -54,6 +58,10 @@ $body-background-color: $parchment;
   font-family: $family-condensed;
   font-weight: bold;
   text-transform: uppercase;
+
+  position: relative;
+  z-index: 40;
+  
   > div {
     display: flex;
   }
@@ -98,15 +106,16 @@ $body-background-color: $parchment;
   }
 }
 
-.initiative {
-  border: 5px solid $parchment;
-  // box-shadow: 1px 10px 16px 0 #0005;
+.initiatives {
   .init-title {
     padding: 2em;
-    flex-basis: 340px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
+    .init-title-footer {
+      margin-top: 1em;
+    }
   }
 
   .init-content {

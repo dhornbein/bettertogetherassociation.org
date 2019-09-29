@@ -31,7 +31,10 @@ $subtitle-family: $family-condensed;
 // Update some of Bulma's component variables
 $body-background-color: $parchment;
 
+$notification-padding: 1.25rem;
+
 @import "../node_modules/bulma/bulma.sass";
+@import "forms";
 @import "nav";
 @import "accessability";
 @import "directory";
@@ -57,6 +60,8 @@ $body-background-color: $parchment;
   font-weight: bold;
 }
 
+$big-nav-breakpoint: 400px;
+
 .big-nav {
   display: flex;
   font-family: $family-condensed;
@@ -66,16 +71,26 @@ $body-background-color: $parchment;
   position: relative;
   z-index: 40;
 
+  @include mobile {
+    display: block;
+  }
+
   > div {
     display: flex;
   }
   .branding {
     background-color: $primary;
     padding: 2em;
-    flex-basis: 340px;
-    img {
+    .logo-tall {
       width: 100%;
       height: auto;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+    .logo-wide {
+      width: auto;
+      max-height: 30vh;
+      margin: 0 auto;
     }
   }
   .big-nav-items {
@@ -84,28 +99,57 @@ $body-background-color: $parchment;
     .nav-row {
       display: flex;
       flex-grow: 1;
+      flex-wrap: wrap;
+      @include until($big-nav-breakpoint) {
+        flex-direction: column;
+      }
+    }
+    .nav-item-group {
+      display: flex;
+      justify-content: stretch;
+      .nav-item {
+        flex-shrink: 1;
+      }
+      @include tablet {
+        flex-direction: column;
+        flex-grow: 0;
+        .nav-item {
+          max-width: 100px;
+          padding: 0 15px;
+        }
+      }
     }
     .nav-item {
       color: $black;
       flex-grow: 1;
-      font-size: 4em;
+      font-size: 2em;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 100ms;
+      padding: .5em;
       &:hover {
         transform: scale(1.1);
         box-shadow: 0 3px 10px #0005;
       }
+      .icon {
+        height: 2rem;
+        width: 2rem;
+      }
+      @include until($big-nav-breakpoint) {
+        padding: 0;
+      }
+      @include tablet {
+        padding: 0;
+        font-size: 4em;
+        .icon {
+          height: 4rem;
+          width: 4rem;
+        }
+      }
     }
     .is-stacked {
-      flex-direction: column;
-      flex-grow: 0;
-      display: flex;
-      justify-content: stretch;
-      .nav-item {
-        width: 100px;
-      }
+
     }
   }
 }

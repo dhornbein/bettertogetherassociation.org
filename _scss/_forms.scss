@@ -1,0 +1,16 @@
+@include until($tablet) {
+
+  .field.has-addons,
+  .field.is-grouped {
+    display: block;
+
+    .control:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 1em;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

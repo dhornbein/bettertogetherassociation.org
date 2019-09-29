@@ -4,7 +4,8 @@ title: home
 
 <div class="big-nav">
   <div class="branding">
-    <img src="{{ '/assets/img/bt-primary-black.png' | relative_url }}" alt="{{ site.name }}">
+    <img class="is-hidden-mobile logo-tall" src="{{ '/assets/img/bt-primary-black.png' | relative_url }}" alt="{{ site.name }}">
+    <img class="is-hidden-tablet logo-wide" src="{{ '/assets/img/bt-master-black.png' | relative_url }}" alt="{{ site.name }}">
   </div>
   <div class="big-nav-items">
     <div class="nav-row">
@@ -15,9 +16,9 @@ title: home
     <div class="nav-row">
       <a class="nav-item has-bg-maroon has-text-parchment" href="/join">Join</a>
       <a class="nav-item has-bg-orange" href="/resources">Resources</a>
-      <div class="is-stacked">
-        <a class="nav-item has-bg-parchment" href="/contact"><span class="icon"><i class="fas fa-envelope"></i></span><span class="sr-only">Contact</span></a>
-        <a class="nav-item has-bg-black has-text-parchment" href="/contact"><span class="icon"><i class="fas fa-question"></i></span><span class="sr-only">About</span></a>
+      <div class="nav-item-group">
+        <a class="nav-item has-bg-parchment" href="/contact"><span class="icon is-large"><i class="fas fa-envelope"></i></span><span class="sr-only">Contact</span></a>
+        <a class="nav-item has-bg-black has-text-parchment" href="/contact"><span class="icon is-large"><i class="fas fa-question"></i></span><span class="sr-only">About</span></a>
       </div>
     </div>
   </div>
@@ -25,7 +26,7 @@ title: home
 
 <section class="section">
   <div class="container">
-    <p class="is-size-1">We are <strong>soloists</strong>; hustlers, freelancers, 1099ers, gig workers, and small business owners who are building community to <strong>improve the quality of our lives</strong> by pooling our resources, finding each other, and making connections.</p>
+    <p class="is-size-1-tablet is-size-4">We are <strong>soloists</strong>; hustlers, freelancers, 1099ers, gig workers, and small business owners who are building community to <strong>improve the quality of our lives</strong> by pooling our resources, finding each other, and making connections.</p>
   </div>
 </section>
 
@@ -59,17 +60,17 @@ title: home
 
 <section class="section">
   <div class="container">
-    <div class="initiatives columns">
+    <div class="initiatives columns is-desktop">
 
       <div class="column">
         <div class="init-title has-bg-blue">
           <div class="init-title-header">
             <h1 class="title is-1">Directory</h1>
-            <p class="lead">Find the best, most awesome people, in our directory. It's free to join.</p>
+            <p class="lead">Find the best, most awesome people, in our directory. It's free to list yourself.</p>
           </div>
-          <div class="init-title-footer buttons has-addons is-centered">
-              <a class="button is-primary is-large" href="">View Directory</a>
-              <a class="button is-dark is-large" href="">Join</a>
+          <div class="init-title-footer buttons is-centered">
+              <a class="button is-primary is-large" href="/directory/">View Directory</a>
+              <a class="button is-dark is-large" href="/directory/join">List Yourself</a>
           </div>
         </div>
       </div>

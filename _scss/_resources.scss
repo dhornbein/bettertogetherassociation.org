@@ -17,9 +17,9 @@
 
 .websites {
   column-width: 400px;
+  column-gap: 50px;
   .site {
     margin-bottom: .5em;
-    padding-right: 1em;
     break-inside: avoid;
   }
 }
@@ -38,8 +38,10 @@
 
 .tools {
   margin: 1em 1em 1em 2em;
-  max-width: 80ch;
+  column-width: 500px;
+  column-gap: 50px;
   .tool {
     margin-bottom: .5em;
+    break-inside: avoid;
   }
 }

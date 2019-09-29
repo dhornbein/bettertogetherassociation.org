@@ -27,6 +27,10 @@ var app = new Vue({
         directory: 'ooctsc1',
       }
     },
+    limit: { // limits on user inputs
+      cosmic: 80,
+      skill: 30
+    },
     filter: {
       skills: {}
     },
@@ -237,14 +241,18 @@ var app = new Vue({
     people: function () {
       return this.gsxRowObject( this.workbook.sheets.directory , function (r,self) {
             var fullname = self.gsxGetCol( r, 'name'),
-                skills = self.gsxGetCol( r, 'otherskills');
+                skills = self.gsxGetCol( r, 'otherskills'),
+                skillMaxLen = self.limit.skill;
 
                 if ( null !== skills ) {
-                  skills = skills.trim().replace(/,+\s*$/, '').split(',').map( skill => (
+                  skills = skills.trim().replace(/,+\s*$/, '').split(',')
+                  .filter( skill => skill.length < skillMaxLen)
+                  .map( skill => (
                   {
                     label: skill.trim(),
                     slug: slugify(skill)
                   }) );
+
                 };
 
           return { //@TODO autmatically return

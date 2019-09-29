@@ -4,6 +4,14 @@
   grid-gap: 1em;
 }
 
+.skills-lead {
+  @include tablet{
+    .tag {
+      font-size: 1.25rem;
+    }
+  }
+}
+
 .person {
   border: 1px solid #eee;
   cursor: pointer;
@@ -50,4 +58,22 @@
 }
 .person .links .label {
   display: none;
+}
+
+.skills {
+  .more {
+    background-color: transparent;
+    color: $link;
+    &:hover {
+      color: $white;
+      background-color: $dark;
+      text-decoration: none;
+    }
+    .more-more { display: none; }
+  }
+}
+.skill-preview {
+  .skill:nth-of-type(1n+6) { display: none; }
+  .more .more-more { display: inline; }
+  .more .more-less { display: none; }
 }

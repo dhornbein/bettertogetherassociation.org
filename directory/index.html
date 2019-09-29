@@ -8,19 +8,16 @@ permalink: /directory/
     <section class="hero is-info is-bold">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title is-1">
-            Freelancers Directory
-          </h1>
-          <a class="button is-primary is-pulled-right" href="/directory/join.html">
+          <a class="button is-primary is-pulled-right is-medium" href="/directory/join.html">
             <span class="icon is-small">
               <i class="fas fa-plus"></i>
             </span>
             &nbsp;
             List yourself
           </a>
-          <h2 class="subtitle">
-            Welcome to a directory of Freelancers in the Denver area.
-          </h2>
+          <h1 class="title is-1">
+            Freelancers Directory
+          </h1>
         </div>
       </div>
       <div class="hero-foot">
@@ -35,11 +32,11 @@ permalink: /directory/
           What are you looking for?
         </p>
 
-        <div class="field is-grouped is-grouped-multiline">
+        <div class="skills-lead field is-grouped is-grouped-multiline">
           <div class="control" v-for="skill in filteredSkills.top">
             <a class="tags has-addons" @click="toggleFilter('skills', skill )">
-              <div class="tag is-large" :class="{ 'is-primary': skill.slug in filter.skills }">(( skill.label ))</div>
-              <div class="tag is-info is-large" v-if="skill.count > 1">(( skill.count ))</div>
+              <div class="tag" :class="{ 'is-primary': skill.slug in filter.skills }">(( skill.label ))</div>
+              <div class="tag is-info" v-if="skill.count > 1">(( skill.count ))</div>
             </a>
           </div>
         </div>
@@ -79,15 +76,20 @@ permalink: /directory/
                   </template>
                 </div>
                 <p class="person__location" v-if="person.location"><label>Location</label> (( person.location ))</p>
-                <p v-if="person.cosmic"><label>Cosmic Task</label><br> (( person.cosmic ))</p>
+                <p v-if="person.cosmic && person.cosmic.length < limit.cosmic"><label>Cosmic Task</label><br> (( person.cosmic ))</p>
                 <template v-if="person.skills">
                   <p><label>Skills</label></p>
-                  <div class="skills tags">
-                    <span class="tag"
+                  <div class="skills tags skill-preview">
+                    <span class="tag skill"
                           :class="{ 'is-primary': skill.slug in filter.skills }"
                           :data-skill="skill.slug"
                           v-for="(skill, index) in person.skills"
                           @click="toggleFilter('skills', skill )">(( skill.label ))</span>
+                    <a class="more tag" v-if="person.skills.length > 6"
+                       onclick="this.parentElement.classList.toggle('skill-preview')">
+                       <span class="more-more">Show (( person.skills.length - 5 )) more...</span>
+                       <span class="more-less">Less...</span>
+                     </a>
                   </div>
                 </template>
               </div>

@@ -5,6 +5,9 @@
 }
 
 .skills-lead {
+  .tag {
+    text-transform: capitalize;
+  }
   @include tablet{
     .tag {
       font-size: 1.25rem;
@@ -76,4 +79,29 @@
   .skill:nth-of-type(1n+6) { display: none; }
   .more .more-more { display: inline; }
   .more .more-less { display: none; }
+}
+
+// join page
+
+#join-directory {
+  .form-intro {
+    .card-example {
+      padding: 50px;
+      .card {
+        max-width: 400px;
+      }
+    }
+  }
+  .form {
+    height: 5000px;
+    iframe {
+      height: 100%;
+    }
+  }
+  @include desktop{
+    display: flex;
+    .form-intro {
+      max-width: 500px;
+    }
+  }
 }

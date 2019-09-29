@@ -1,7 +1,7 @@
 @include until($tablet) {
 
-  .field.has-addons,
-  .field.is-grouped {
+  .field.has-addons.is-responsive,
+  .field.is-grouped.is-responsive {
     display: block;
 
     .control:not(:last-child) {

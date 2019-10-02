@@ -1,6 +1,42 @@
 ---
 title: Become a Founding Member
 permalink: /join/
+plans:
+ -
+  title: Startup Founder
+  class: is-warning
+  monthly:
+    cost: 9
+    hours: 4
+  gifts:
+   - Quilt patch
+   - Badge on Directory Listing
+   - Cool pin
+ -
+  title: Established Founder
+  class: is-active
+  monthly:
+    cost: 29
+    hours: 2
+  gifts:
+   - Quilt patch
+   - Badge on Directory Listing
+   - Cool pin
+   - Cool Shirt
+   - Custom name tag
+ -
+  title: Thriving Founder
+  class: is-danger
+  monthly:
+    cost: 49
+    hours: 1
+  gifts:
+   - Quilt patch
+   - Badge on Directory Listing
+   - Cool pin
+   - Cool Shirt
+   - Custom name tag
+   - Profiled on newsletter
 ---
 
 <section class="hero is-danger is-fullheight-with-navbar">
@@ -22,13 +58,13 @@ permalink: /join/
   <div class="container">
     <div class="columns">
       <div class="column">
-        <p class="lead">Over the past year Better Together has hosted <mark>16 empowering, educational, and connective events</mark>. Catered with quality food and hosted by experts from your community. Over 400 people have attended our events. Our email list and meetup.com membership is nearly 300. We’ve hosted <mark>Freelance Business Week, a 5 day long event with over 79 sessions, 73 speakers across 9 different venues</mark>. All on a shoestring budget with volunteer labor.</p>
+        <p class="lead">Over the past year Better Together has hosted <mark>16 empowering, educational, and connective events</mark>. Catered with quality food and hosted by experts from your community. Over 400 people have attended our events. Our email list and meetup.com membership is nearly 300. We’ve hosted <mark>Freelance Business Week, a 5 day long event with over 79 sessions, 70+ speakers across 9 different venues</mark>. All on a shoestring budget with volunteer labor.</p>
       </div>
       <div class="column">
         <p class="lead">In one year...</p>
         <p class="title is-2">16 Events</p>
-        <p class="title is-2">300+ Members</p>
-        <p class="title is-2">80 Directory Listings</p>
+        <p class="title is-2">400+ Attentees</p>
+        <p class="title is-2">80+ Directory Listings</p>
       </div>
     </div>
   </div>
@@ -94,6 +130,38 @@ permalink: /join/
   <div class="hero-body">
     <div class="container">
       <h1 class="title is-2 has-text-centered">Ready to lay the foundation of a powerful association of Independent Workers in Colorado?</h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">Make an Investment</h1>
+    <p class="lead">We ask for a financial contribution and hours of your expert time. No matter where you are at in your career we want you to contribute and be part of Better Together! Choose which founding member you want to be, each level comes with a different set of gifts.</p>
+    <br>
+    {{ page.plans.startup.title }}
+    <div class="pricing-table">
+    {% for plan in page.plans %}
+      <div class="pricing-plan {{ plan.class }}">
+        <div class="plan-header">{{ plan.title }}</div>
+        <div class="plan-price">
+          <span class="plan-price-amount"><span class="plan-price-currency">$</span>{{ plan.monthly.cost | times: 10 }}</span>
+          <span class="icon is-large"><i class="fas fa-plus fa-2x"></i></span>
+          <span class="plan-price-amount">{{ plan.monthly.hours | times: 10 }}<span class="plan-price-currency">hours</span></span>
+          <br>
+          for year
+        </div>
+        <h1 class="plan-header is-size-5">Gifts</h1>
+        <div class="plan-items">
+          {% for gift in plan.gifts %}
+          <div class="plan-item">{{ gift }}</div>
+          {% endfor %}
+        </div>
+        <div class="plan-footer">
+          <button class="button is-fullwidth">Choose</button>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

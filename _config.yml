@@ -24,6 +24,7 @@ url: "https://denverfreelancing.com" # the base hostname & protocol for your sit
 name: Better Together Association of Independent Workers LLC
 links:
   openCollective: "https://opencollective.com/better-together-denver"
+  meetup: "https://www.meetup.com/Freelancer-are-better-together/"
 
 defaults:
   - scope:

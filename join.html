@@ -4,6 +4,7 @@ permalink: /join/
 plans:
  -
   title: Startup Founder
+  sku: sku_FtEIv7eOHlXNuH
   class: is-warning
   monthly:
     cost: 9
@@ -14,6 +15,7 @@ plans:
    - Cool pin
  -
   title: Established Founder
+  sku: sku_FvQogRMcSMduMx
   class: is-active
   monthly:
     cost: 29
@@ -26,6 +28,7 @@ plans:
    - Custom name tag
  -
   title: Thriving Founder
+  sku: sku_FvQobWfG4wFd5h
   class: is-danger
   monthly:
     cost: 49
@@ -58,7 +61,7 @@ plans:
   <div class="container">
     <div class="columns">
       <div class="column">
-        <p class="lead">Over the past year Better Together has hosted <mark>16 empowering, educational, and connective events</mark>. Catered with quality food and hosted by experts from your community. Over 400 people have attended our events. Our email list and meetup.com membership is nearly 300. We’ve hosted <mark>Freelance Business Week, a 5 day long event with over 79 sessions, 70+ speakers across 9 different venues</mark>. All on a shoestring budget with volunteer labor.</p>
+        <p class="lead">Over the past year Better Together has hosted <mark>16 empowering, educational, and connective events</mark> hosted by the experts of your community. Over 400 people have attended our events. Our email list and meetup.com membership is nearly 300. We’ve hosted <mark>Freelance Business Week, a 5 day long event with over 79 sessions, 70+ speakers across 16 different venues</mark>. All on a shoestring budget with volunteers sharing their time and talent.</p>
       </div>
       <div class="column">
         <p class="lead">In one year...</p>
@@ -80,48 +83,21 @@ plans:
 
 <section class="section">
   <div class="container">
-    <div class="columns">
-      <div class="column is-half">
-        <p class="lead">That’s why we are inviting you to become a founding member of the Better Together Association of Independent Workers.</p>
-      </div>
-    </div>
-    <h2 class="title is-2">Member Benifits:</h2>
-    <div class="columns">
-      <div class="column">
-        <div class="benifit has-bg-yellow">
-          <p class="is-size-1">1 year of membership</p>
-          <p class="">starting Jan 1, 2020</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="benifit has-background-white">
-          <p class="is-size-3">Programming</p>
-          <p class="">for monthly social and educational events to connect you with your community and level up your business, both</p>
-          <p class="is-size-3">virtually &amp;<br>in-person</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="benifit has-bg-black has-text-white">
-          <p class="is-size-1 has-text-centered">members only events</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="benifit has-bg-maroon has-text-parchment">
-          <p class="is-size-3">Listing on our Directory</p>
-          <p class="">with</p>
-          <p class="is-size-3">exclusive promotion to employers</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="benifit has-bg-blue">
-          <p class="is-size-1 has-text-centered">Member’s Slack team</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="benifit has-bg-orange">
-          <p class=""><strong>Exposure for you/your freelancing.</strong> Opportunity to present at a Better Together monthly event</p>
-        </div>
-      </div>
+    <p class="lead">That’s why we are inviting you to become a founding member of the Better Together Association of Independent Workers.</p>
+    <br>
+    <h2 class="title is-2">Founding Member Benifits:</h2>
+    <div class="content">
+      <ul class="is-size-4">
+        <li class="benefit"><mark>1 year of membership</mark> through Dec 31, 2020.</li>
+        <li class="benefit">Programming for monthly social and educational events to connect you with your community and level up your business, both <mark>virtually and in-person</mark>.</li>
+        <li class="benefit">Access to members only events.</li>
+        <li class="benefit">Discounts on services from partners</li>
+        <li class="benefit">Listing on our Directory.</li>
+        <li class="benefit"><mark>Exclusive promotion</mark> of your Directory listing to employers.</li>
+        <li class="benefit">Member’s Slack team.</li>
+        <li class="benefit">Opportunity to present at a Better Together monthly event.</li>
+        <li class="benefit"><strong>Much more to come...</strong></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -129,7 +105,7 @@ plans:
 <section class="hero is-dark">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title is-2 has-text-centered">Ready to lay the foundation of a powerful association of Independent Workers in Colorado?</h1>
+      <h1 class="title is-2 has-text-centered">Ready to build a powerful association of Independent Workers in Colorado?</h1>
     </div>
   </div>
 </section>
@@ -158,10 +134,49 @@ plans:
           {% endfor %}
         </div>
         <div class="plan-footer">
-          <button class="button is-fullwidth">Choose</button>
+          <button id="checkout-button-{{ plan.sku }}" data-sku="{{ plan.sku }}" class="checkout-button button is-fullwidth is-medium">Choose</button>
         </div>
       </div>
       {% endfor %}
     </div>
+    <div id="error-message"></div>
   </div>
 </section>
+
+<script src="https://js.stripe.com/v3"></script>
+<script>
+(function() {
+  var stripe = Stripe('pk_live_25JxiUvh4VVbU8hDxNn7VADE00WvdZPCI0');
+
+  var checkoutButtons = document.getElementsByClassName('checkout-button');
+
+  for (var i = 0; i < checkoutButtons.length; i++) {
+    var checkoutButton = checkoutButtons[i];
+
+    checkoutButton.addEventListener('click', function () {
+      console.log(this.dataset.sku);
+      // When the customer clicks on the button, redirect
+      // them to Checkout.
+      stripe.redirectToCheckout({
+        items: [{sku: this.dataset.sku, quantity: 1}],
+
+        // Do not rely on the redirect to the successUrl for fulfilling
+        // purchases, customers may not always reach the success_url after
+        // a successful payment.
+        // Instead use one of the strategies described in
+        // https://stripe.com/docs/payments/checkout/fulfillment
+        successUrl: 'https://bettertogetherassociation.org/success',
+        cancelUrl: 'https://bettertogetherassociation.org/canceled',
+      })
+      .then(function (result) {
+        if (result.error) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, display the localized error message to your customer.
+          var displayError = document.getElementById('error-message');
+          displayError.textContent = result.error.message;
+        }
+      });
+    });
+  }
+})();
+</script>

@@ -55,6 +55,12 @@ $notification-padding: 1.25rem;
 .has-text-blue      { color: $blue !important; }
 .has-text-orange    { color: $orange !important; }
 
+mark {
+  background-color: $primary;
+  color: $black;
+  box-shadow: 4px 0 0 0 $primary, -4px 0 0 0 $primary;
+}
+
 .lead {
   font-size: 1.5em;
   font-family: $family-monospace;

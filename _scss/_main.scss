@@ -33,8 +33,8 @@ $body-background-color: $parchment;
 
 $notification-padding: 1.25rem;
 
-@import "../node_modules/bulma/bulma.sass";
-@import "../node_modules/bulma-pricingtable/src/sass/index.sass";
+@import "vendor/bulma-scss/bulma";
+@import "vendor/pricingtable";
 @import "forms";
 @import "nav";
 @import "accessability";

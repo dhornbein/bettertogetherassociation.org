@@ -29,3 +29,10 @@ rendering the site.
 
 Once the site is running on your local environment you're ready to edit. Please
 look to the Jekyll documentation to better understand how the file structure works
+
+# TODO
+
+## Version control bulma
+Currently bulma exists in the `_scss` folder and is not managed via npm or other means.
+Find a means to manage bulma and other vendor libraries through npm or package
+manager.

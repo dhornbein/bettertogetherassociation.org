@@ -206,3 +206,7 @@ $big-nav-breakpoint: 400px;
   flex-direction: column;
   justify-content: space-around;
 }
+
+.maxwidth p {
+  max-width: 85ch;
+}

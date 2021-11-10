@@ -2,19 +2,4 @@ title: "Denver Area<br>Freelancers"
 left:
   - link: /
     name: Home
-  - link: /directory/
-    name: Directory
-    children:
-      - link: /directory/join
-        name: Join
-  - link: /resources/
-    name: Resources
-  - link: /subscribe/
-    name: Subscribe
 right:
-  # - link: https://opencollective.com/better-together-denver
-  #   icon: fas fa-2x fa-donate
-  - link: https://www.meetup.com/Freelancer-are-better-together/
-    icon: fab fa-2x fa-meetup
-  - link: https://www.facebook.com/Better-Together-Association-1273449229483514/
-    icon: fab fa-2x fa-facebook-f

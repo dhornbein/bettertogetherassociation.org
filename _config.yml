@@ -32,6 +32,10 @@ defaults:
     values:
       title: "Page"
       layout: "default"
+  - scope:
+      path: "node_modules"
+    values:
+      render_with_liquid: false
 
 collections:
   - events
